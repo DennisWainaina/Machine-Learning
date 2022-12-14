@@ -58,3 +58,5 @@ plt.show()
 print(metrics.mean_absolute_error(y_test, y_pred))  # For the mean absolute error(MAE)
 print(metrics.mean_squared_error(y_test, y_pred))  # For the mean squared error(MSE)
 print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))  # For the root mean squared value (RMSE)
+
+# The code works and the project is complete
