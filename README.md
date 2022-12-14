@@ -1,2 +1,2 @@
 # Machine-Learning
-Machine Learning models to solve classification and regression problems
+These are mini projects undertaken while learning about machine learning
