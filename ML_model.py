@@ -124,4 +124,5 @@ dot_data = export_graphviz(model_improved, out_file=None, feature_names=x_test.c
                            filled=True, rounded=True, special_characters=True)
 
 graph1 = graphviz.Source(dot_data, format='png')
-print(graph1)
+graph1.render(view=True)
+# The code works and the project is complete
