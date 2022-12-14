@@ -58,4 +58,6 @@ class_names=['0', '1'],
 filled=True, rounded=True,
 special_characters=True)
 graph1=graphviz.Source(dot_data)
-print(graph1)
+graph1.render(view=True)
+
+# The code works and the project is complete
