@@ -52,7 +52,8 @@ print('The predictions are')
 print(model.predict(x.head()))
 
 # We want to see how the model looks like here we will use a module known as graphviz
-dot_data= export_graphviz(model, out_file=None,
+dot_data = export_graphviz(model, out_file=None, feature_names=x_test.columns, class_names=['0', '1'],
+                           filled=True, rounded=True, special_characters=True)
 feature_names=x_test.columns,
 class_names=['0', '1'],
 filled=True, rounded=True,
