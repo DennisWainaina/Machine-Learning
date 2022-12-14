@@ -24,7 +24,7 @@ print(numerical_variables)
 
 # We then seperate the important variables from the rest
 # These are variables that can be used to accurately predict crime rate which is our target variable
-df1 = df[['graduates', 'work_force', 'income', 'percent_city', 'crime_rate']]
+df1 = df[['graduates', 'work_force', 'income', 'percent_city', 'crime_rate', 'region']]
 
 # We then proceed to seperate the target variables from the input(predictor variables)
 print('The input variables are')
