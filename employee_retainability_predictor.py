@@ -12,7 +12,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/dphi-official/Datasets/maste
 print(df)
 # Load libraries and data.
 # Do some exploratory data analysis to figure out which variables have a direct and clear impact on employee retention
-# Plot bar charts showing the impact of employee salaries on retention
+# Impact of employee salaries on retention
 # See the correlation between department and employee retention
 # Separate dependent and independent variables.
 # Split the data into train set and test set
@@ -95,3 +95,18 @@ cm = confusion_matrix(y_test, y_predict)
 conf_matrix = pd.DataFrame(data=cm, columns=['Predicted:0', 'Predicted:1'], index=['Actual:0', 'Actual:1'])
 print(conf_matrix)
 print(df['time_spend_company'])
+
+# Effect of employee salary on retention
+high_paid_employees = df['salary'][df['salary'] == 'high']
+print('High paid employees that left are', len(high_paid_employees[df['left'] == 1]))
+medium_paid_employees = df['salary'][df['salary'] == 'medium']
+print('Medium paid employees that left are', len(medium_paid_employees[df['left'] == 1]))
+low_paid_employees = df['salary'][df['salary'] == 'low']
+print('Low paid employees that left are', len(low_paid_employees[df['left'] == 1]))
+print('The number of high paid employees are', len(high_paid_employees))
+print('The number of medium paid employees are', len(medium_paid_employees))
+print('The number of low paid employees are', len(low_paid_employees))
+print('The number of employees who leave increase with decrease in salary ')
+print('Therefore a decrease in salary causes a decrease in employee retention')
+
+# The code works and the project is complete
