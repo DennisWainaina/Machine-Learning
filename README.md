@@ -9,7 +9,8 @@ They include:
 3. A machine learning model that uses linear regression to predict the salary of a worker based on his or her years of experience.
 ![scatter_plot_linearregression](https://user-images.githubusercontent.com/116555573/207537640-1cad312e-66ff-4c1d-aee1-bf868a21ba8c.png)
 ![linear_regression_model](https://user-images.githubusercontent.com/116555573/207537682-7e6a6c01-2ad3-4af3-8148-7f054bf7001c.png)
-
+4. A logisitic regression model that predicts the chances of a patient getting coronary heart disease in 10 years based on factors such as the gender, if he/she smokes, the no of cigarettes smoked per day and his or her age
+![heart_disease_predictor](https://user-images.githubusercontent.com/116555573/208112766-7ad38ade-f30b-44f0-84e4-88b8679540ac.png)
 
 # What I learnt:
 1. Building machine learning models such as decision trees and linear regression models
