@@ -12,6 +12,8 @@ They include:
 4. A logisitic regression model that predicts the chances of a patient getting coronary heart disease in 10 years based on factors such as the gender, if he/she smokes, the no of cigarettes smoked per day and his or her age
 ![heart_disease_predictor](https://user-images.githubusercontent.com/116555573/208112766-7ad38ade-f30b-44f0-84e4-88b8679540ac.png)
 5. A logistic regression model that predicts the number of a handwritten digit from a dataset in sklearn library.![hand_written_digit_predictor](https://user-images.githubusercontent.com/116555573/208383421-4fcf1479-b350-4846-9840-f9b3800647c9.png)
+6. A logistic regression model that predicts the quality of red wine from 1 to 10 using factors such as the fixed acidity and volatile acidity of the wine as some of the factors.![red_wine_quality_predictor](https://user-images.githubusercontent.com/116555573/208393375-22c099c5-d88f-4c86-8749-eddbc031a54c.png)
+
 
 
 # What I learnt:
