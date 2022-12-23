@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge  # To try and improve accuracy
 from sklearn.metrics import r2_score
+from sklearn.preprocessing import MinMaxScaler
 
 # Then we load the dataframe to see the columns
 house_data = pd.read_csv('https://raw.githubusercontent.com/dphi-official/Datasets/master/kc_house_data/'
@@ -104,10 +105,21 @@ print(categorical_variables)  # There are no categorical variables hence no need
 
 
 # Seperating the target and input variables
-x = house_data.drop('price', axis=1)  # These are the input variables
+x = house_data.drop(['price', 'zipcode'],
+                    axis=1)  # These are the input variables
 y = house_data['price']  # This is the target variable
 print(x)
 print(y)
+
+# Lets see if we can normalise the data to improve accuracy
+min_max_scaler = MinMaxScaler()
+col_name = house_data.drop('price', axis=1).columns[:]
+x = house_data.loc[:, col_name]
+x = pd.DataFrame(data=min_max_scaler.fit_transform(x), columns=col_name)
+print('Before normalising')
+print(house_data.head())
+print('After normalising')
+print(x.head())  # Didn't work
 
 # Splitting the target and input variables into training and test data
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=5)
@@ -148,6 +160,16 @@ ridge.fit(x_train, y_train)
 print('The training score is', ridge.score(x_train, y_train))
 new_predict = ridge.predict(x_test)
 
+# Setting price column equal to test predicted
+y_predict = model.predict(x_test)
+y_predicted = ridge.predict(x.head(4999))
+eval_data['prediction'] = y_predicted
+print(eval_data)
+
+# Saving to csv file
+eval_data['prediction'].to_csv('new_predicted_evaluation_data.csv')
+print(eval_data['prediction'].info())
+
 # We now compare the accuracy score before and after ridge model
 accuracy = r2_score(y_test, y_predict)
 print('The r2 score before ridge model is', accuracy)
@@ -162,4 +184,46 @@ plt.xlabel('Bedrooms')
 plt.ylabel('House price')
 plt.xlim(0, 4)
 plt.ylim(100000, 600000)
-plt.show()
+# plt.show()
+
+
+# If condition of house affects the price of the house
+print(house_data['condition'])
+oldest_house = house_data['yr_built'].min()
+print(oldest_house)
+print('The price of the newest house is', house_data['price'][house_data['yr_built'] == oldest_house])
+price_of_good_condition = house_data['price'][house_data['condition'] == 1]
+print(price_of_good_condition)
+print('The average prices of houses in condition one is', price_of_good_condition.mean())
+second_condition = house_data['price'][house_data['condition'] == 2]
+print('The average prices of houses in condition two is', second_condition.mean())
+third_condition = house_data['price'][house_data['condition'] == 3]
+print('The average prices of houses in condition three is', third_condition.mean())
+fourth_condition = house_data['price'][house_data['condition'] == 4]
+print('The average prices of houses in condition four is', fourth_condition.mean())
+fifth_condition = house_data['price'][house_data['condition'] == 5]
+print('The average prices of houses in condition five is', fifth_condition.mean())
+# Condition of house from 1 which is bad to 5 which is excellent affects price of house
+
+
+# If the property has been viewed affects price of the house
+price_of_viewed_houses = house_data['price'][house_data['view'] == 1]
+price_of_unseen_houses = house_data['price'][house_data['view'] == 0]
+print(price_of_viewed_houses)
+print(price_of_unseen_houses)
+print('The average price of viewed houses is', price_of_viewed_houses.mean())
+print('The average price of unviewed houses is', price_of_unseen_houses.mean())
+# Viewed houses are more expensive than unseen houses
+
+# If the grade of the house affects price of house
+high_graded_house_price = house_data['price'][house_data['grade'] == 7]
+print(high_graded_house_price)
+print('The average price of high graded houses is', high_graded_house_price.mean())
+# From decreasing the grade from 13 its evident that the grade of the house determines its price
+
+# If the zipcode affects the price of the house
+print(house_data['zipcode'])
+print(house_data['zipcode'].unique())
+print(house_data['zipcode'].mode())
+print(list(house_data['price'][house_data['zipcode'] == 98052]))
+print('The average price of zipcode 98052 is', house_data['price'][house_data['zipcode'] == 98052].mean())
