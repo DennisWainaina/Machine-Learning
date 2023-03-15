@@ -93,7 +93,7 @@ print(y_predict)
 # Seeing the new accuracy, f1 score and r2 score using ensemble methods
 r2 = r2_score(y_test, y_predict)
 MSE = mean_squared_error(y_test, y_predict)
-print('The r2 score of the gradient boosting regressor model is', r2)
+print('The r2 score of the gradient boosting regressor model is', r2)  # 0.8357
 print('Mean squared error of the gradient boosting regressor model is', MSE)  # 0.1927
 
 # Seeing the effect of feature selection on the r2 score of the model
@@ -110,7 +110,7 @@ base_model1.fit(x_important_train, y_train)
 y_predict1 = base_model1.predict(x_important_test)
 
 # Seeing the new r2 score after using feature selection
-r2 = r2_score(y_test, y_predict1)  # 0.8357
+r2 = r2_score(y_test, y_predict1)  
 MSE = mean_squared_error(y_test, y_predict1)
 print('R2 score after feature selection of the gradient boosting regressor model is', r2)  # 0.8382
 print('Mean squared error after feature selection of the gradient boosting regressor model is', MSE)  # 0.1998
