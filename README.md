@@ -26,6 +26,6 @@ Finally, I used a Logistic Regression model to predict the quality of red wine o
 
 
 # What I Learned
-Through these projects, I gained experience in building and implementing various Machine Learning models, including Decision Trees, Linear Regression, and Logistic Regression. Additionally, I learned how to preprocess data by separating it into numerical and categorical variables, perform one-hot encoding on categorical variables, and perform single imputation to replace missing values.
+Through these projects, I gained experience in building and implementing various Machine Learning models, including Decision Trees, Linear Regression, and Logistic Regression. Additionally, I learned how to preprocess data by separating it into numerical and categorical variables, perform one-hot encoding on categorical variables, and perform single imputation to replace missing values..
 
 **Overall, these projects have provided me with a solid foundation in Machine Learning and data analysis, and I am eager to continue building my skills in this field.**
